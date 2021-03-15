@@ -3,7 +3,7 @@ let resultados = document.querySelector('#results')
 let all = document.querySelector('#all');
 let active = document.querySelector('#active');
 let completed = document.querySelector('#completed');
-let modo = document.querySelector('#modo');
+let modo = document.querySelector('.night');
 
 
 all.addEventListener('click',todas);
@@ -18,6 +18,9 @@ function datosInput(e){
 
     if(teclaEnter == 13){
         let table = document.createElement('tr');
+        let resultadoFinal = document.querySelector('#resultados');
+
+        
         table.classList.add('lista');
         table.classList.add('noComplete')
 
@@ -27,6 +30,7 @@ function datosInput(e){
             <td><span onClick="borrar(this)" class="borrar"><img src="../images/icon-cross.svg"></span></td>
         `
         resultados.appendChild(table);
+
 
         input.value = '';
     }
@@ -83,18 +87,27 @@ function borrar(e){
 }
 
 function cambiarModo(){
+
     let body = document.querySelector('body');
     let container = document.querySelector('.container');
     let options = document.querySelector('.options');
     let optionsLinks = document.querySelectorAll('.options a')
     let input = document.querySelector('input[type=text]')
     let table = document.querySelector('table')
-    let lista = document.querySelectorAll('.lista')
-    let checkbox = document.querySelectorAll('.checkbox');
+    let luna = document.querySelector('.luna');
+    let sol = document.querySelector('.sol');
 
+  
+    options.classList.toggle('focus-dark')
+    
+    if(luna.classList.contains('luna')){
+        luna.classList.toggle('mostrar-luz')
+        sol.classList.toggle('mostrar-dark')
+    }
+    
     body.classList.toggle('dark')
 
-    container.classList.toggle('header-dark')
+    container.classList.toggle('container-dark')
    
     options.classList.toggle('principal-dark')
     
@@ -104,11 +117,5 @@ function cambiarModo(){
 
     input.classList.toggle('principal-dark')
     table.classList.toggle('principal-dark')
-
-   checkbox.forEach(check => {
-       checkbox.addEventListener('change', () => {
-           alert('aaa')
-       })
-   })
 
 }

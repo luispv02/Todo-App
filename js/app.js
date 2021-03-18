@@ -28,7 +28,7 @@ function datosInput(e){
         table.innerHTML = `
             <td><input type="checkbox" class="checkbox" id="checkboxDos" onChange="completo(this)"></td>
             <td class="value">${input.value}</td>
-            <td><span onClick="borrar(this)" class="borrar"><img src="../images/icon-cross.svg"></span></td>
+            <td><span onClick="borrar(this)" class="borrar"><img src="images/icon-cross.svg"></span></td>
         `
         resultados.appendChild(table);
 
